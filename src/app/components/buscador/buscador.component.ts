@@ -18,7 +18,7 @@ export class BuscadorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.value = params['value'];
-      this.pokemons = this.pokemonServices.searchPokemons(params['value']);
+      this.pokemons = this.pokemonServices.searchPokemons(this.value);
     });
   }
 

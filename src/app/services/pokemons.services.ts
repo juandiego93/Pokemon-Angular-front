@@ -23,7 +23,7 @@ export class PokemonsService {
     }
 
     getPokemon(index) {
-        this.getData();        
+        this.getData();
         const mov = this.getMov(index)
         const pokemonSearch = this.pokemons.find(pok => {
             return pok.id === Number(index)
@@ -34,7 +34,7 @@ export class PokemonsService {
     getMov(index) {
         const pokemonMovSearch = this.pokemonsMovs.find(mov => {
             return mov['id'] == Number(index)
-        })        
+        })
         return pokemonMovSearch
     }
 
@@ -43,9 +43,9 @@ export class PokemonsService {
         value = value.toLowerCase();
         for (let i = 0; i < this.pokemons.length; i++) {
             const pokemon = this.pokemons[i];
-            const nombre = pokemon['nombre'].toLowerCase();
+            const nombre = pokemon['name']['english'].toLowerCase();
             if (nombre.indexOf(value) >= 0) {
-                pokemon.id = i;
+                pokemon.id = i + 1;
                 pokemonsArr.push(pokemon);
             }
         }

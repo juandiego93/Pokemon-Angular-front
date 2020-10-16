@@ -1,6 +1,5 @@
-<h1>Buscador: <small>{{value}}</small></h1>
-
-
+<h2 class="text-center">Buscaste por: <small>{{value}}</small> y coinciden {{pokemons.length}} resultados</h2>
+<hr>
 <div class="row" *ngIf="pokemons.length == 0">
 	<div class="col-md-12">
 		<div class="alert alert-info" role="alert">
@@ -8,7 +7,7 @@
 		</div>
 	</div>
 </div>
-
 <div class="card-columns">
-	<app-pokemon-tarjeta [pokemon]="pokemon" [index]="pokemon.idx" *ngFor="let pokemon of pokemons; let i = index"></app-pokemon-tarjeta>
+	<app-pokemon-tarjeta [pokemon]="pokemon" [index]="pokemon.id" *ngFor="let pokemon of pokemons; let i = index">
+	</app-pokemon-tarjeta>
 </div>

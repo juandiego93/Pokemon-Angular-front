@@ -16,6 +16,7 @@ export class PokemonTarjetaComponent implements OnInit {
 
   constructor(private router: Router) {
     this.pokemonSeleccionado = new EventEmitter();
+    console.log(this.index, this.pokemon,this.pokemonSeleccionado); 
   }
 
   ngOnInit(): void {
