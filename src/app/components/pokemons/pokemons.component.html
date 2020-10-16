@@ -1,6 +1,7 @@
-<h1>Pokemons <small>Marvel y DC</small></h1>
-
+<h1 class="text-center">POKEDEX</h1>
+<hr>
 <div class="card-columns">
-    <app-pokemon-tarjeta (pokemonSeleccionado)="viewPokemon($event)" [pokemon]="pokemon" [index]="i"
+    <app-pokemon-tarjeta (pokemonSeleccionado)="viewPokemon(pokemon.id)" [pokemon]="pokemon" [index]="pokemon.id"
         *ngFor="let pokemon of pokemons; let i = index"></app-pokemon-tarjeta>
+        <hr>
 </div>

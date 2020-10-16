@@ -1,11 +1,12 @@
-<div class="container">
+<div class="container text-center">
+	<!-- 
 	<h1>
-		{{pokemon.nombre | uppercase}} <small> {{pokemon.aparicion | date:'y'}} </small>
+		{{pokemon.name.english | uppercase}}
 	</h1>
 	<hr>
 	<div class="row">
 		<div class="col-md-4">
-			<img [src]="pokemon.img" [alt]="pokemon.nombre" class="img-fluid">
+			<img src="assets/pokemon-data/imgs/{{pokemon.id}}.png" [alt]="pokemon.name.english" class="img-fluid">
 			<br>
 			<br>
 			<a [routerLink]="['/pokemons']" class="btn btn-outline-danger btn-block">
@@ -14,16 +15,145 @@
 		</div>
 		<div class="col-md-8">
 			<h3>
-				{{pokemon.nombre}}
+				{{pokemon.nombre}} MI amor
 			</h3>
 			<hr>
 			<p>
-				{{pokemon.bio}}
+				{{pokemon.bio}} No me digas que no
 			</p>
 			<div>
 				<img *ngIf="pokemon.casa == 'Marvel'" src="assets/img/marvel-logo.jpg" alt="" class="img-logo">
 				<img *ngIf="pokemon.casa == 'DC'" src="assets/img/dc-logo.png" alt="" class="img-logo">
 			</div>
 		</div>
+	</div> -->
+	<div id="cards">
+
+		<figure class="card card--{{pokemon.type[0]}}">
+			<div class="card__image-container">
+				<img src="assets/pokemon-data/imgs/{{pokemon.id}}.png" alt="Eevee" class="card__image">
+			</div>
+
+			<figcaption class="card__caption">
+				<h1 class="card__name">{{pokemon.name.english}}</h1>
+
+				<h3 class="card__type">
+					{{pokemon.type[0]}}
+				</h3>
+
+				<table class="card__stats">
+					<tbody>
+						<tr>
+							<th>HP</th>
+							<td>{{pokemon.base.HP}}</td>
+						</tr>
+						<tr>
+							<th>Ataque</th>
+							<td>{{pokemon.base.Attack}}</td>
+						</tr>
+
+						<tr>
+							<th>Defensa</th>
+							<td>{{pokemon.base.Defense}}</td>
+						</tr>
+
+						<tr>
+							<th>Ataque Especial</th>
+							<td>{{pokemon.base.Sp_Attack}}</td>
+						</tr>
+						<tr>
+							<th>Defesna Especial</th>
+							<td>{{pokemon.base.Sp_Defense}}</td>
+						</tr>
+						<tr>
+							<th>Velocidad</th>
+							<td>{{pokemon.base.Speed}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="card__abilities">
+					<h4 class="card__ability">
+						<span class="card__label" style="font-size: 15px;">Habilidad</span>
+						<br>
+						{{movement['ename']}}
+					</h4>
+					<h4 class="card__ability">
+						<span class="card__label" style="font-size: 15px;">Características</span>
+						<br>
+						<div class="row">
+							<div class="col card__label">Exactitud</div>
+							<div class="col card__label">{{movement['accuracy']}}</div>
+						</div>
+						<div class="row">
+							<div class="col card__label">Poder</div>
+							<div class="col card__label">{{movement['power']}}</div>
+						</div>
+						<div class="row">
+							<div class="col card__label">Tipo</div>
+							<div class="col card__label">{{movement['type']}}</div>
+						</div>
+					</h4>
+				</div>
+			</figcaption>
+		</figure>
+
+
+
+		<script id="card-template" type="text/x-handlebars-template">
+		<figure class="card card--{{type}}">
+		  <div class="card__image-container">
+			<img src="{{imageAddress}}" alt="{{name}}" class="card__image">   
+		  </div>
+		  
+		  <figcaption class="card__caption">
+			<h1 class="card__name">{{name}}</h1>
+		
+			<h3 class="card__type">e
+			  {{type}}
+			</h3>
+		
+			<table class="card__stats">
+			  <tr>
+				<th>HP</th>
+				<td>{{hp}}</td>
+			  </tr>
+			  <tr>
+				<th>Attack</th>
+				<td>{{attack}}</td>
+			  </tr>
+			  
+			  <tr>
+				<th>Defense</th>
+				<td>{{defense}}</td>
+			  </tr>
+		
+			  <tr>
+				<th>Special Attack</th>
+				<td>{{spAttack}}</td>
+			  </tr>
+			  <tr>
+				<th>Special Defense</th>
+				<td>{{spDefense}}</td>
+			  </tr>
+			  <tr>
+				<th>Speed</th>  
+				<td>{{speed}}</td>
+			  </tr>
+			</table>
+			
+			<div class="card__abilities">
+			  <h4 class="card__ability">
+				<span class="card__label">Ability</span>
+				{{ability1}}
+			  </h4>
+			  <h4 class="card__ability">
+				<span class="card__label">Hidden Ability</span>
+				{{ability2}}
+			  </h4>
+			</div>
+		  </figcaption>
+		</figure>
+		</script>
+
+
 	</div>
-</div>

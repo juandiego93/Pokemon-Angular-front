@@ -7,26 +7,35 @@ import { Pokemon } from '../interfaces/pokemon.interface';
 export class PokemonsService {
 
     pokemons: Pokemon[]
+    pokemonsMovs: []
 
     constructor(private http: HttpClient) {
         this.getData()
     }
 
     getData() {
-        this.http.get('assets/pokemon-data/pokedex.json', { responseType: 'text' })
-            .subscribe(data => {
-                this.pokemons = JSON.parse(data)
-                console.log(data);
-            });
+        this.pokemons = require('../../assets/pokemon-data/pokedex.json')
+        this.pokemonsMovs = require('../../assets/pokemon-data/movements.json')
     }
 
     getAllPokemons() {
-        console.log(this.pokemons);
         return this.pokemons;
     }
 
     getPokemon(index) {
-        return this.pokemons[index];
+        this.getData();        
+        const mov = this.getMov(index)
+        const pokemonSearch = this.pokemons.find(pok => {
+            return pok.id === Number(index)
+        })
+        return { pokemonSearch, mov }
+    }
+
+    getMov(index) {
+        const pokemonMovSearch = this.pokemonsMovs.find(mov => {
+            return mov['id'] == Number(index)
+        })        
+        return pokemonMovSearch
     }
 
     searchPokemons(value: string) {

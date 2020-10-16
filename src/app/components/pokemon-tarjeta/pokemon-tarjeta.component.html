@@ -1,18 +1,25 @@
 <div class="card mt-1">
 	<!-- <img class="card-img-top" [src]="pokemon.img" alt="Card image cap"> -->
 	<img class="card-img-top" src="assets/pokemon-data/imgs/{{pokemon.id}}.png" alt="Card image cap">
-	<div class="card-body">
-		<h5 class="card-title">
-			{{pokemon.id}} - {{pokemon.name.english}}
+	<div class="card-body text-center">
+		<h5 class="card-title text-center">
+			{{pokemon.name.english}}
 		</h5>
-		<p class="card-text">
-			<p class="card-text">
-				<!-- {{pokemon.bio}} -->
-			</p>
-			<!-- <p class="card-text"><small class="text-muted">{{pokemon.aparicion}}</small></p> -->
+		<!-- <p class="card-text"> -->
+		<div class="card-text">
+			<hr>
+			<h5>
+				Tipo:
+			</h5>
+			<div class="row">
+				<div class="col">{{pokemon.type[0]}} </div>
+				<div class="col">{{pokemon.type[1]}} </div>
+			</div>
+		</div>
+		<!-- <p class="card-text"><small class="text-muted">{{pokemon.aparicion}}</small></p> -->
+		<hr>
+		<button (click)="viewPokemon()" class="btn btn-primary">Ver más</button>
 
-			<button (click)="viewPokemon()" class="btn btn-primary">Ver más</button>
-
-			<!-- <a [routerLink]="['/pokemon', i]" class="btn btn-outline-primary ">Ver Más</a> -->
+		<!-- <a [routerLink]="['/pokemon', i]" class="btn btn-outline-primary ">Ver Más</a> -->
 	</div>
 </div>
