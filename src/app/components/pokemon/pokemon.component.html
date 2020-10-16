@@ -1,0 +1,29 @@
+<div class="container">
+	<h1>
+		{{pokemon.nombre | uppercase}} <small> {{pokemon.aparicion | date:'y'}} </small>
+	</h1>
+	<hr>
+	<div class="row">
+		<div class="col-md-4">
+			<img [src]="pokemon.img" [alt]="pokemon.nombre" class="img-fluid">
+			<br>
+			<br>
+			<a [routerLink]="['/pokemons']" class="btn btn-outline-danger btn-block">
+				Regresar
+			</a>
+		</div>
+		<div class="col-md-8">
+			<h3>
+				{{pokemon.nombre}}
+			</h3>
+			<hr>
+			<p>
+				{{pokemon.bio}}
+			</p>
+			<div>
+				<img *ngIf="pokemon.casa == 'Marvel'" src="assets/img/marvel-logo.jpg" alt="" class="img-logo">
+				<img *ngIf="pokemon.casa == 'DC'" src="assets/img/dc-logo.png" alt="" class="img-logo">
+			</div>
+		</div>
+	</div>
+</div>

@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
-import { HeroesService } from './services/heroes.services';
-import { HeroeComponent } from './components/heroe/heroe.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
-import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
+import { PokemonTarjetaComponent } from './components/pokemon-tarjeta/pokemon-tarjeta.component';
+import { PokemonsService } from 'src/app/services/pokemons.services';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
+import { PokemonsComponent } from './components/pokemons/pokemons.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,17 +19,18 @@ import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    HeroesComponent,
-    HeroeComponent,
     BuscadorComponent,
-    HeroeTarjetaComponent
+    PokemonTarjetaComponent,
+    PokemonComponent,
+    PokemonsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    HeroesService
+    PokemonsService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeroesService } from 'src/app/services/heroes.services';
+import { PokemonsService } from 'src/app/services/pokemons.services';
 
 @Component({
   selector: 'app-buscador',
@@ -10,15 +10,15 @@ import { HeroesService } from 'src/app/services/heroes.services';
 })
 export class BuscadorComponent implements OnInit {
 
-  heroes: any[] = [];
+  pokemons: any[] = [];
   value: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private heroeServices: HeroesService) { }
+  constructor(private activatedRoute: ActivatedRoute, private pokemonServices: PokemonsService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.value = params['value'];
-      this.heroes = this.heroeServices.searchHeroes(params['value']);
+      this.pokemons = this.pokemonServices.searchPokemons(params['value']);
     });
   }
 

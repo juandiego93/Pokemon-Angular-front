@@ -1,0 +1,18 @@
+<div class="card mt-1">
+	<!-- <img class="card-img-top" [src]="pokemon.img" alt="Card image cap"> -->
+	<img class="card-img-top" src="assets/pokemon-data/imgs/{{pokemon.id}}.png" alt="Card image cap">
+	<div class="card-body">
+		<h5 class="card-title">
+			{{pokemon.id}} - {{pokemon.name.english}}
+		</h5>
+		<p class="card-text">
+			<p class="card-text">
+				<!-- {{pokemon.bio}} -->
+			</p>
+			<!-- <p class="card-text"><small class="text-muted">{{pokemon.aparicion}}</small></p> -->
+
+			<button (click)="viewPokemon()" class="btn btn-primary">Ver más</button>
+
+			<!-- <a [routerLink]="['/pokemon', i]" class="btn btn-outline-primary ">Ver Más</a> -->
+	</div>
+</div>
